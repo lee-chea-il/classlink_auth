@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 
 @Configuration
 public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
-	@Autowired
+
 	private AuthenticationManager authenticationManager;
 	
 	@Autowired
