@@ -9,7 +9,7 @@ spring:
 
 spring:
   application:
-    name: classlink_auth
+    name: classlink_websocket_api
   main:
     allow-circular-references: true
   config:
@@ -17,7 +17,7 @@ spring:
       on-profile: "common"
   
 mybatis:
-  type-aliases-package: com.classlink.auth.domain
+  type-aliases-package: com.classlink.websocket.api.domain
   mapper-locations: classpath:static/mapper/**/*.xml
 
 ---
@@ -26,6 +26,10 @@ spring:
   config:
     activate:
       on-profile: "prod"
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://${rds.hostname}:${rds.port}/${rds.db.name}
@@ -36,7 +40,14 @@ spring:
 
 server: 
   port: 5000
-  live: true
+  
+log:
+  config:
+    path: /service/cl_websocket_api/log
+    filename: server-dev
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
+  
 ---
 
 
@@ -44,6 +55,10 @@ spring:
   config:
     activate:
       on-profile: "dev"
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://112.171.101.31:45336/classlink?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
@@ -53,9 +68,17 @@ spring:
       maximum-pool-size: 10
       
 server: 
-  port: 8101
+  port: 8001
   live: true
- 
+  
+log:
+  config:
+    path: /service/cl_websocket_api/log
+    filename: server-dev
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
+file:
+  dir: D:\logs\
 ---
 
 
@@ -63,6 +86,10 @@ spring:
   config:
     activate:
       on-profile: "local"
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://112.171.101.31:45336/classlink?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
@@ -71,6 +98,14 @@ spring:
     hikari:
       maximum-pool-size: 10
 server: 
-  port: 8101
+  port: 8301
   live: true
-   
+  
+log:
+  config:
+    path: D:\logs
+    filename: app-local
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
+file:
+  dir: D:\logs\   
