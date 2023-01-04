@@ -30,8 +30,8 @@ public class AuthorizationServerConfig extends AuthorizationServerSecurityConfig
 	@Autowired
 	private CustomWebAuthenticationDetailsSource authenticationDetailsSource;
 
-	@Override
 	@Bean
+	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
