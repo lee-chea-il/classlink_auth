@@ -39,7 +39,7 @@ server:
   
 log:
   config:
-    path: /service/cl_websocket_api/log
+    path: /service/cl_auth_api/log
     filename: server-dev
     maxHistory: 7 # 7일
     totalSizeCap: 10MB # 로그 파일 사이즈
