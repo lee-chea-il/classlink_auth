@@ -28,14 +28,14 @@ spring:
       on-profile: "prod"
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://112.171.101.31:3106/inshop?characterEncoding=UTF-8&serverTimezone=UTC
-    username: deannn
-    password: deannn123
+    url: jdbc:mariadb://${rds.hostname}:${rds.port}/${rds.db.name}
+    username: ${rds.username}
+    password: ${rds.password}
     hikari:
       maximum-pool-size: 10
 
 server: 
-  port: 8001
+  port: 5000
   
 log:
   config:
