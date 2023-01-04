@@ -1,4 +1,4 @@
-name: classlink_websocket_api
+name: classlink_auth
 on:
   push:
     branches:
@@ -45,8 +45,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: classlink-websocket-api # 엘리스틱 빈스톡 애플리케이션 이름!
-          environment_name: Classlinkwebsocketapi-env # 엘리스틱 빈스톡 환경 이름!
-          version_label: classlink-websocket-api-${{steps.current-time.outputs.formattedTime}}
+          application_name: classlink-auth # 엘리스틱 빈스톡 애플리케이션 이름!
+          environment_name: Classlinkauth-env # 엘리스틱 빈스톡 환경 이름!
+          version_label: classlink-auth-${{steps.current-time.outputs.formattedTime}}
           region: ap-northeast-2
           deployment_package: deploy/deploy.zip
