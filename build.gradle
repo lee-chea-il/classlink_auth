@@ -4,7 +4,11 @@ plugins {
 	id 'java'
 }
 
-group = 'com.classlink'
+bootJar {
+	archiveFileName = "${rootProject.name}.jar"
+}
+
+group = 'com.classlink.auth'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -41,6 +45,7 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+// 2. plain 파일 생성하지 않는 설정
 jar {
 	enabled = false
 }
