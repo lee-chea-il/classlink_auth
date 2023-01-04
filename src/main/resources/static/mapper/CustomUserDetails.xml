@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.classlink.auth.mapper.CustomUserDetailsMapper">
+	<select id="findCustomUserDetailsById" parameterType="String" resultType="CustomUserDetails">
+		<![CDATA[
+		SELECT mem_id id, mem_pwd pwd
+		  FROM cl_member
+		 WHERE mem_id = #{memId}
+		]]>
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.classlink.auth.mapper.MemberMapper">
+
+	<insert id="insertMember" parameterType="MemberDto">
+		<![CDATA[
+		INSERT INTO cl_member
+		(mem_id, mem_pwd, mem_email, mem_name, mem_nickname, terms_agree_yn, personal_yn)
+		VALUES(
+			#{MemId},
+			#{MemPwd},
+			#{MemEmail},
+			#{MemName},
+			#{MemNickname},
+			#{TermsAgreeYn},
+			#{PersonalYn}
+		)
+		]]>
+	</insert>
+
+	<update id="updatePassword"  parameterType="ChangePwdDto">
+	
+	<![CDATA[
+			UPDATE cl_member SET mem_pwd = #{MemPwd} WHERE mem_id=#{MemId}
+	]]>
+
+	</update>
+</mapper>

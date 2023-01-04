@@ -1,0 +1,99 @@
+spring:
+  profiles:
+    group:
+      "local": "local,common"
+      "dev":  "dev,common"
+      "prod": "prod,common"
+
+---
+
+spring:
+  application:
+    name: classlink_auth
+  main:
+    allow-circular-references: true
+  config:
+    activate:
+      on-profile: "common"
+  
+mybatis:
+  type-aliases-package: com.classlink.auth.domain
+  mapper-locations: classpath:static/mapper/**/*.xml
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://112.171.101.31:3106/inshop?characterEncoding=UTF-8&serverTimezone=UTC
+    username: deannn
+    password: deannn123
+    hikari:
+      maximum-pool-size: 10
+
+server: 
+  port: 8001
+  
+log:
+  config:
+    path: /service/cl_websocket_api/log
+    filename: server-dev
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
+  
+---
+
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://112.171.101.31:45336/classlink?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: classlink
+    password: classlink!02$
+    hikari:
+      maximum-pool-size: 10
+      
+server: 
+  port: 8101
+  live: true
+  
+log:
+  config:
+    path: /service/cl_auth/log
+    filename: server-dev
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
+file:
+  dir: D:\logs\
+---
+
+
+spring:
+  config:
+    activate:
+      on-profile: "local"
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://112.171.101.31:45336/classlink?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: classlink
+    password: classlink!02$
+    hikari:
+      maximum-pool-size: 10
+server: 
+  port: 8101
+  live: true
+  
+log:
+  config:
+    path: D:\logs
+    filename: app-local
+    maxHistory: 7 # 7일
+    totalSizeCap: 10MB # 로그 파일 사이즈
+file:
+  dir: D:\logs\   
