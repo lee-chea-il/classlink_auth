@@ -1,5 +1,6 @@
 package com.classlink.auth.service.login;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import com.classlink.auth.service.CustomUserDetailsService;
 @Slf4j
 public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
 	@Autowired
-	private CustomUserDetailsService customUserDetailsService;
+	private  CustomUserDetailsService customUserDetailsService;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -55,4 +56,11 @@ public class CustomAuthenticationProvider extends DaoAuthenticationProvider {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		return passwordEncoder.matches(loginPassword, password);
 	}
+
+	public CustomAuthenticationProvider() {
+		this.customUserDetailsService = null;
+		// TODO Auto-generated constructor stub
+	}
+
+
 }

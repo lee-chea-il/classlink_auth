@@ -14,29 +14,22 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
+import lombok.RequiredArgsConstructor;
+
 @Configuration
+@RequiredArgsConstructor
 public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
-
-	private AuthenticationManager authenticationManager;
-	private UserDetailsService userDetailsService;
-    private TokenStore tokenStore;
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
-    private TokenEnhancer jwtTokenEnhancer;
 	
-    public JWTOAuth2Config(AuthenticationManager authenticationManager) {
-		super();
-		this.authenticationManager = authenticationManager;
-	}
+	private final AuthenticationManager authenticationManager;
+	
+	private final UserDetailsService userDetailsService;
+	
+    private final TokenStore tokenStore;
     
-    public JWTOAuth2Config(UserDetailsService userDetailsService, TokenStore tokenStore,
-			JwtAccessTokenConverter jwtAccessTokenConverter, TokenEnhancer jwtTokenEnhancer) {
-		super();
-		this.userDetailsService = userDetailsService;
-		this.tokenStore = tokenStore;
-		this.jwtAccessTokenConverter = jwtAccessTokenConverter;
-		this.jwtTokenEnhancer = jwtTokenEnhancer;
-	}
-
+    private final JwtAccessTokenConverter jwtAccessTokenConverter;
+    
+    private final TokenEnhancer jwtTokenEnhancer;
+    
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()

@@ -1,5 +1,6 @@
 package com.classlink.auth.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,14 +17,10 @@ import com.classlink.auth.mapper.CustomUserDetailsMapper;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-
-	private CustomUserDetailsMapper customUserDetailsMapper;
 	
-	public CustomUserDetailsService(CustomUserDetailsMapper customUserDetailsMapper) {
-		super();
-		this.customUserDetailsMapper = customUserDetailsMapper;
-	}
+	private final CustomUserDetailsMapper customUserDetailsMapper;
 
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {

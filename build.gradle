@@ -8,7 +8,7 @@ bootJar {
 	archiveFileName = "${rootProject.name}.jar"
 }
 
-group = 'com.classlink.auth'
+group = 'com.classlink'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 

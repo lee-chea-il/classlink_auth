@@ -9,7 +9,7 @@ spring:
 
 spring:
   application:
-    name: classlink_websocket_api
+    name: classlink_auth
   main:
     allow-circular-references: true
   config:
@@ -17,7 +17,7 @@ spring:
       on-profile: "common"
   
 mybatis:
-  type-aliases-package: com.classlink.websocket.api.domain
+  type-aliases-package: com.classlink.auth.domain
   mapper-locations: classpath:static/mapper/**/*.xml
 
 ---
@@ -98,7 +98,7 @@ spring:
     hikari:
       maximum-pool-size: 10
 server: 
-  port: 8301
+  port: 8101
   live: true
   
 log:

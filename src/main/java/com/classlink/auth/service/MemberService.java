@@ -12,16 +12,14 @@ import com.classlink.auth.domain.param.ChangePwdParam;
 import com.classlink.auth.domain.param.MemberJoinParam;
 import com.classlink.auth.mapper.MemberMapper;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class MemberService {
 	
-	//@Autowired
-	//BCryptPasswordEncoder passwordEncoder;
-	
-	@Autowired
-	MemberMapper memberMapper;
+	public final MemberMapper memberMapper;
 	
 	@Transactional
 	public void memberJoinProc(MemberJoinParam memberJoinParam) {

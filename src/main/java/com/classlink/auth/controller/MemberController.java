@@ -14,13 +14,14 @@ import com.classlink.auth.domain.result.ResponseResult;
 import com.classlink.auth.service.MemberService;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 public class MemberController {
 	
-	@Autowired
-	MemberService memberService;
+	private final MemberService memberService;
 	
 	@ApiModelProperty(value = "회원가입", notes = "")
 	@PostMapping(value = "/join")
