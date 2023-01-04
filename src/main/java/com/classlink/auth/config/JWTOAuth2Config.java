@@ -18,24 +18,25 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
 
 	private AuthenticationManager authenticationManager;
+	private UserDetailsService userDetailsService;
+    private TokenStore tokenStore;
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+    private TokenEnhancer jwtTokenEnhancer;
 	
-	public JWTOAuth2Config(AuthenticationManager authenticationManager) {
+    public JWTOAuth2Config(AuthenticationManager authenticationManager) {
 		super();
 		this.authenticationManager = authenticationManager;
 	}
+    
+    public JWTOAuth2Config(UserDetailsService userDetailsService, TokenStore tokenStore,
+			JwtAccessTokenConverter jwtAccessTokenConverter, TokenEnhancer jwtTokenEnhancer) {
+		super();
+		this.userDetailsService = userDetailsService;
+		this.tokenStore = tokenStore;
+		this.jwtAccessTokenConverter = jwtAccessTokenConverter;
+		this.jwtTokenEnhancer = jwtTokenEnhancer;
+	}
 
-	@Autowired
-	private UserDetailsService userDetailsService;
-	
-    @Autowired
-    private TokenStore tokenStore;
-    
-    @Autowired
-    private JwtAccessTokenConverter jwtAccessTokenConverter;
-    
-    @Autowired
-    private TokenEnhancer jwtTokenEnhancer;
-    
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 		clients.inMemory()

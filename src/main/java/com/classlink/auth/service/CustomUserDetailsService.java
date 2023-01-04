@@ -17,8 +17,13 @@ import com.classlink.auth.mapper.CustomUserDetailsMapper;
 @Slf4j
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-	@Autowired
+
 	private CustomUserDetailsMapper customUserDetailsMapper;
+	
+	public CustomUserDetailsService(CustomUserDetailsMapper customUserDetailsMapper) {
+		super();
+		this.customUserDetailsMapper = customUserDetailsMapper;
+	}
 
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {

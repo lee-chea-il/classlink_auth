@@ -20,15 +20,24 @@ import org.springframework.web.filter.CorsFilter;
 import com.classlink.auth.service.login.CustomAuthenticationProvider;
 import com.classlink.auth.service.login.CustomWebAuthenticationDetailsSource;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Configuration
 @Import(AuthorizationServerEndpointsConfiguration.class)
+@NoArgsConstructor
 public class AuthorizationServerConfig extends AuthorizationServerSecurityConfiguration {
 
-	@Autowired
+	
 	private UserDetailsService userDetailsService;
-
-	@Autowired
 	private CustomWebAuthenticationDetailsSource authenticationDetailsSource;
+	
+	public AuthorizationServerConfig(UserDetailsService userDetailsService,
+			CustomWebAuthenticationDetailsSource authenticationDetailsSource) {
+		super();
+		this.userDetailsService = userDetailsService;
+		this.authenticationDetailsSource = authenticationDetailsSource;
+	}
 
 	@Bean
 	@Override
