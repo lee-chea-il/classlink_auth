@@ -19,6 +19,11 @@ public class JWTOAuth2Config extends AuthorizationServerConfigurerAdapter {
 
 	private AuthenticationManager authenticationManager;
 	
+	public JWTOAuth2Config(AuthenticationManager authenticationManager) {
+		super();
+		this.authenticationManager = authenticationManager;
+	}
+
 	@Autowired
 	private UserDetailsService userDetailsService;
 	
