@@ -36,14 +36,7 @@ spring:
 
 server: 
   port: 5000
-  
-log:
-  config:
-    path: /service/cl_auth_api/log
-    filename: server-dev
-    maxHistory: 7 # 7일
-    totalSizeCap: 10MB # 로그 파일 사이즈
-  
+  live: true
 ---
 
 
@@ -62,15 +55,7 @@ spring:
 server: 
   port: 8101
   live: true
-  
-log:
-  config:
-    path: /service/cl_auth/log
-    filename: server-dev
-    maxHistory: 7 # 7일
-    totalSizeCap: 10MB # 로그 파일 사이즈
-file:
-  dir: D:\logs\
+ 
 ---
 
 
@@ -88,12 +73,4 @@ spring:
 server: 
   port: 8101
   live: true
-  
-log:
-  config:
-    path: D:\logs
-    filename: app-local
-    maxHistory: 7 # 7일
-    totalSizeCap: 10MB # 로그 파일 사이즈
-file:
-  dir: D:\logs\   
+   
