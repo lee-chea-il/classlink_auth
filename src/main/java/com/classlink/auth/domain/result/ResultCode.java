@@ -4,8 +4,10 @@ import com.classlink.auth.domain.BaseObject;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(callSuper=false)
 public class ResultCode extends BaseObject {
 	@ApiModelProperty(notes = "결과코드", required = true)
 	private String return_cd;
