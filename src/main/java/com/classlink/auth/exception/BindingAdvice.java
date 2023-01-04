@@ -17,6 +17,7 @@ import com.classlink.auth.domain.result.ResponseResult;
 public class BindingAdvice {
 	// @After
 	// @Beforef
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Around("execution(* com.classlink.web.api.controller..*Controller.*(..))")
 	public Object vaildCheck(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		Object[] args = proceedingJoinPoint.getArgs();
