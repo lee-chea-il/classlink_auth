@@ -68,7 +68,7 @@ spring:
       maximum-pool-size: 10
       
 server: 
-  port: 8001
+  port: 5000
   live: true
   
 log:
@@ -98,7 +98,7 @@ spring:
     hikari:
       maximum-pool-size: 10
 server: 
-  port: 8101
+  port: 5000
   live: true
   
 log:
