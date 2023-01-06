@@ -32,9 +32,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://${rds.hostname}:${rds.port}/${rds.db.name}
-    username: ${rds.username}
-    password: ${rds.password}
+    url: jdbc:mariadb://112.171.101.31:45336/classlink?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: classlink
+    password: classlink!02$
     hikari:
       maximum-pool-size: 10
 
