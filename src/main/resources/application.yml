@@ -42,12 +42,9 @@ server:
   port: 5000
   live: true
   
-log:
-  config:
-    path: /var/app/current
-    filename: server-dev
-    maxHistory: 7 # 7일
-    totalSizeCap: 10MB # 로그 파일 사이즈
+logging:
+  level:
+    '[org.springframework.boot.web]': INFO
   
 ---
 
@@ -72,12 +69,9 @@ server:
   port: 5000
   live: true
   
-log:
-  config:
-    path: /var/app/current
-    filename: server-dev
-    maxHistory: 7 # 7일
-    totalSizeCap: 10MB # 로그 파일 사이즈
+logging:
+  level:
+    '[org.springframework.boot.web]': INFO
 ---
 
 spring:
@@ -99,9 +93,6 @@ server:
   port: 5000
   live: true
   
-log:
-  config:
-    path: C:\responsFile\Log\classlink
-    filename: app-local
-    maxHistory: 7 # 7일
-    totalSizeCap: 10MB # 로그 파일 사이즈
+logging:
+  level:
+    '[org.springframework.boot.web]': INFO
