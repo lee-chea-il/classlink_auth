@@ -48,5 +48,5 @@ jobs:
           application_name: classlink-auth # 엘리스틱 빈스톡 애플리케이션 이름!
           environment_name: Classlinkauth-env # 엘리스틱 빈스톡 환경 이름!
           version_label: classlink-auth-${{steps.current-time.outputs.formattedTime}}
-          region: ap-northeast-2
+          region: ap-northeast-2 #
           deployment_package: deploy/deploy.zip
