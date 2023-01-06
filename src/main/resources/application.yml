@@ -44,7 +44,7 @@ server:
   
 log:
   config:
-    path: /service/cl_websocket_api/log
+    path: /var/app/current
     filename: server-dev
     maxHistory: 7 # 7일
     totalSizeCap: 10MB # 로그 파일 사이즈
@@ -74,6 +74,7 @@ server:
   
 log:
   config:
+    path: /var/app/current
     filename: server-dev
     maxHistory: 7 # 7일
     totalSizeCap: 10MB # 로그 파일 사이즈
@@ -100,6 +101,7 @@ server:
   
 log:
   config:
+    path: C:\responsFile\Log\classlink
     filename: app-local
     maxHistory: 7 # 7일
     totalSizeCap: 10MB # 로그 파일 사이즈
