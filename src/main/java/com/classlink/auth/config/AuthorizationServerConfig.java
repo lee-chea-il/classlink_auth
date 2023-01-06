@@ -1,13 +1,13 @@
 package com.classlink.auth.config;
 
 import java.util.Arrays;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -26,9 +26,6 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-
-	@Value("${security.oauth2.jwt.signkey}")
-	private String signKey;
 
 	private final AuthenticationManager authenticationManager;
 
@@ -63,16 +60,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 				.authenticationManager(authenticationManager).userDetailsService(userDetailsService);
 	}
 
-	@Override
-	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()") // allow check token
-				.allowFormAuthenticationForClients();
-	}
-
-	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	/*
+	 * @Override public void configure(AuthorizationServerSecurityConfigurer
+	 * security) throws Exception {
+	 * security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()")
+	 * // allow check token .allowFormAuthenticationForClients(); }
+	 */
 
 	private CorsConfigurationSource corsConfigurationSource() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

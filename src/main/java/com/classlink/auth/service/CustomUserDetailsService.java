@@ -27,6 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		log.info("Authenticating user with username={}", userId);
 
 		CustomUserDetails customUserDetails = customUserDetailsMapper.findCustomUserDetailsById(userId);
+		log.info(customUserDetailsMapper.findCustomUserDetailsById(userId).toString());
 		//customUserDetails.setMem_grpList(null);
 		if (customUserDetails == null) {
 			throw new UsernameNotFoundException("여기냐?");
