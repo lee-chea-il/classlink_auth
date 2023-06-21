@@ -3,7 +3,9 @@ spring:
     group:
       "local": "local,common"
       "dev":  "dev,common"
+      "test": "test,common"
       "prod": "prod,common"
+      
 
 ---
 
@@ -48,6 +50,30 @@ logging:
   
 ---
 
+spring:
+  config:
+    activate:
+      on-profile: "test"
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://classlink-trial-operation-db.cy6paarynirx.ap-northeast-2.rds.amazonaws.com/classlink?characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+    username: classlink
+    password: classlink!02$
+    hikari:
+      maximum-pool-size: 10
+      
+server: 
+  port: 5000
+  live: true
+  
+logging:
+  level:
+    '[org.springframework.boot.web]': INFO
+---
 
 spring:
   config:

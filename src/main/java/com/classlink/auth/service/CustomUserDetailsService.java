@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		log.info(customUserDetailsMapper.findCustomUserDetailsById(userId).toString());
 		//customUserDetails.setMem_grpList(null);
 		if (customUserDetails == null) {
-			throw new UsernameNotFoundException("여기냐?");
+			throw new UsernameNotFoundException("회원이 존재하지 않습니다.");
 		}
 		
 		log.info(customUserDetails.toString());

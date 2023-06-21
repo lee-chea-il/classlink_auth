@@ -25,8 +25,8 @@ public class MemberJoinParam {
 	private String IdtCode;
 	
 	@JsonProperty("TermsAgreeYn")
-	private String TermsAgreeYn;
+	private boolean TermsAgreeYn;
 	
 	@JsonProperty("PersonalYn")
-	private String PersonalYn;
+	private boolean PersonalYn;
 }

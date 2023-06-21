@@ -36,10 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		super.configure(http);
-		CorsConfigurationSource source = corsConfigurationSource();
-		// http.addFilterBefore(new CorsFilter(source), ChannelProcessingFilter.class);
-		http.formLogin().authenticationDetailsSource(authenticationDetailsSource);
+		http.csrf().disable();
+		http.formLogin().authenticationDetailsSource(authenticationDetailsSource).and().authorizeRequests().antMatchers("/join").permitAll();
 	}
 
 	@Override
